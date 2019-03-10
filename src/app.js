@@ -1,42 +1,47 @@
-console.log("App Is Running!!!")
-
-const user = () => {
-    email: [];
-    firstName: [];
-    lastName: [];
-}
-
-const onFormSubmit = (e) => {
-    e.preventDefault();
-
-    const option = e.target.elements.option.value;
-
-    if(option){
-        
+class SignUpForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: "Kgeebro@gmail.com",
+            firstName: "Kannah",
+            lastName: "Geebro"
+        }
     }
-    console.log("Form Submitted");
+
+
+
+        render(){
+            return(
+                <div>
+                    <h1>Welcome To FirstProject</h1>
+                    <h3>Sign Up. It'll make me feel good</h3>
+                    <form>
+                        <input type="email" placeholder="Email"></input>
+                        <input type="text" placeholder="First"></input>
+                        <input type="text" placeholder="Last"></input>
+                        <input type="submit" value="Submit"></input>
+                    </form>
+                    <ul>
+                        <li>First Name: {this.state.firstName}</li>
+                        <li>Last Name: {this.state.lastName}</li>
+                        <li>Email: {this.state.email}</li>
+                    </ul>
+                </div>
+            );
+        }
+    
 }
 
-const template = (
-<div>
-    <h1>Welcome To FirstProject</h1>
-    <h3>Sign Up. It'll make me feel good</h3>
-    <form onSubmit={onFormSubmit}>
-        <input id="email" type="email" placeholder="Email"></input>
-        <input id="firstName" type="text" placeholder="First"></input>
-        <input id="lastName" type="text" placeholder="Last"></input>
-        <button>SUBMIT</button>
-    </form>
-</div>
-);
 
 
 
 
 
 
- 
 var appRoot = document.getElementById('app');
 
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(<SignUpForm />, appRoot);
+
+
+
